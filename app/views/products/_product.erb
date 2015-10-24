@@ -1,0 +1,15 @@
+<div class="block block-small">
+  <%= link_to image_tag(product.img :medium), product %>
+  <div class="title">
+    <%= truncate( product.title, length: 40) %>
+  </div>
+
+
+  <% if admin? %>
+    <div>
+      <%= link_to 'Редактрировать', edit_product_path(product), class: 'btn btn-primary btn-sm pull-right' %>
+      <%= link_to 'Удалить', product, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-primary btn-sm pull-right' %>
+    </div>
+  <% end %>
+</div>
+

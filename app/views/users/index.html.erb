@@ -1,0 +1,13 @@
+  <% @users.each do |user| %>
+    <div style="border-bottom: 1px solid #555">
+      <p>Имя: <%= user.name %><br>
+        Электронная почта: <%= user.email %></p>
+      <% if admin? %>
+        <%= link_to 'Открыть', user %>
+        <%= link_to 'Редактировать', edit_user_path(user) if current_user == user %>
+        <%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Are you sure?' } if user != current_user %>
+      <% end %>
+    </div>
+  <% end %>
+<br>
+

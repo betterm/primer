@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Комментарий:</strong>
+  <%= @review.msg %>
+</p>
+
+<p>
+  <strong>Товар:</strong>
+  <%= @review.product_id %>
+</p>
+
+<p>
+  <strong>Пользователь:</strong>
+  <%= @review.user_id %>
+</p>
+
+<%= link_to 'Редактировать', edit_review_path(@review) %> |
+<%= link_to 'Назад', reviews_path %>

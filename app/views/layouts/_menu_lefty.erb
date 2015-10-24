@@ -1,0 +1,19 @@
+<div class="col-sm-3">
+  <ul class="list-group inverse">
+    <%= link_to products_path do %>
+      <li class="list-group-item">
+        <span class="badge"><%= Product.all.count %></span>
+        Все категории
+      </li>
+    <% end %>
+    <% Category.all.each do |c| %>
+      <%= link_to  products_category_path(c) do %>
+        <li class="list-group-item">
+          <span class="badge"><%= c.products.count %></span>
+          <%= c.name %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <%= link_to 'Новый товар', new_product_path, class: 'btn btn-lg btn-primary' if admin? %>
+</div>
